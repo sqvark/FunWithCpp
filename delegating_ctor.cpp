@@ -1,6 +1,6 @@
 
-// Question: if constructor of object throws exception
-// is destructor will be called?
+// Question: if constructor of object throws exception,
+// will destructor be called?
 
 #include <iostream>
 #include <string>
@@ -27,6 +27,11 @@ public:
 
         if (s == BAD_ARG_STR) throw std::invalid_argument("Bad arg string");
     }
+
+#ifdef INITIALIZER_ERROR
+    // ERROR: initializer can't follow delegated constructor
+    Printer(double d): Printer(34), id_(45) {}
+#endif // INITIALIZER_ERROR
 
     ~Printer() { PrintCall(__FUNCTION__); }
 
