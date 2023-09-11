@@ -13,6 +13,7 @@ void print_array(int * arr, int len)
 #define ARRAY_SIZE(x)    (sizeof(x) / sizeof(x[0]))
 #define PRINT(x)         (print_array(x, ARRAY_SIZE(x)))
 
+
 int main()
 {
     int values[10] = { [7] = 1, [2] = 2 };
